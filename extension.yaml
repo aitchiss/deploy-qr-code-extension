@@ -12,5 +12,3 @@ config:
   ui:
     surfaces:
       - extension-site-deploy
-      - extension-team-configuration
-      - extension-top-level-site-configuration

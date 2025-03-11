@@ -27,14 +27,6 @@ export const App = () => {
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
         <SurfaceRouter>
-          <SurfaceRoute surface={Surfaces.SiteConfiguration}>
-            <SiteConfiguration />
-          </SurfaceRoute>
-
-          <SurfaceRoute surface={Surfaces.TeamConfiguration}>
-            <TeamConfiguration />
-          </SurfaceRoute>
-
           <SurfaceRoute surface={Surfaces.SiteDeploy}>
             <SiteDeploy />
           </SurfaceRoute>
