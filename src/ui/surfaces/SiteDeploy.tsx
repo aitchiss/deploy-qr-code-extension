@@ -61,13 +61,9 @@ export default function SiteDeploy({}) {
         <p>Something went wrong; refresh the page to try again.</p>
       )}
       {deployQuery.isLoading && !deployQuery.data && (
-        <>
-          <p className="mt-4">Preparing your QR code...</p>
+        <div style={{ width: "200px", height: "200px" }}>
           <ListLoader />
-        </>
-      )}
-      {deployQuery.data && (
-        <p className="mt-4">Scan the QR code below to view your deploy:</p>
+        </div>
       )}
       <div ref={el} id="qr-canvas"></div>
     </SiteDeploySurface>
