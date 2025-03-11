@@ -1,5 +1,6 @@
 import { useNetlifySDK } from "@netlify/sdk/ui/react";
 import {
+  Card,
   ListLoader,
   SiteDeploySurface,
 } from "@netlify/sdk/ui/react/components";
@@ -57,15 +58,17 @@ export default function SiteDeploy({}) {
 
   return (
     <SiteDeploySurface>
-      {deployQuery.error && (
-        <p>Something went wrong; refresh the page to try again.</p>
-      )}
-      {deployQuery.isLoading && !deployQuery.data && (
-        <div style={{ width: "200px", height: "200px" }}>
-          <ListLoader />
-        </div>
-      )}
-      <div ref={el} id="qr-canvas"></div>
+      <div className="tw-mt-4">
+        {deployQuery.error && (
+          <p>Something went wrong; refresh the page to try again.</p>
+        )}
+        {deployQuery.isLoading && !deployQuery.data && (
+          <div style={{ width: "200px", height: "200px" }}>
+            <ListLoader />
+          </div>
+        )}
+        <div ref={el} id="qr-canvas"></div>
+      </div>
     </SiteDeploySurface>
   );
 }
