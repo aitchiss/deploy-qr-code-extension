@@ -6,8 +6,8 @@ import { useState } from "react";
 import { SiteConfiguration } from "./surfaces/SiteConfiguration.jsx";
 import { TeamConfiguration } from "./surfaces/TeamConfiguration.jsx";
 
-
 import { trpc } from "./trpc.js";
+import SiteDeploy from "./surfaces/SiteDeploy.js";
 
 export const App = () => {
   const fetch = useNetlifyExtensionUIFetch();
@@ -20,7 +20,7 @@ export const App = () => {
           fetch,
         }),
       ],
-    }),
+    })
   );
 
   return (
@@ -34,8 +34,10 @@ export const App = () => {
           <SurfaceRoute surface={Surfaces.TeamConfiguration}>
             <TeamConfiguration />
           </SurfaceRoute>
-          
-          
+
+          <SurfaceRoute surface={Surfaces.SiteDeploy}>
+            <SiteDeploy />
+          </SurfaceRoute>
         </SurfaceRouter>
       </QueryClientProvider>
     </trpc.Provider>
