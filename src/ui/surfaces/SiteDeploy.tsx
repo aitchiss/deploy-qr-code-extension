@@ -1,6 +1,5 @@
 import { useNetlifySDK } from "@netlify/sdk/ui/react";
 import {
-  Card,
   ListLoader,
   SiteDeploySurface,
 } from "@netlify/sdk/ui/react/components";
