@@ -1,9 +1,23 @@
 import { TRPCError } from "@trpc/server";
 import { procedure, router } from "./trpc.js";
 import { teamSettingsSchema } from "../schema/team-configuration.js";
-
+import { z } from "zod";
 
 export const appRouter = router({
+  deployDetails: {
+    query: procedure
+      .input(z.object({ deployId: z.string() }))
+      .query(async ({ ctx: { client }, input: { deployId } }) => {
+        if (!deployId) {
+          throw new TRPCError({
+            code: "BAD_REQUEST",
+            message: "deployId is required",
+          });
+        }
+        const deployData = await client.getDeploy(deployId);
+        return deployData;
+      }),
+  },
   teamSettings: {
     query: procedure.query(async ({ ctx: { teamId, client } }) => {
       if (!teamId) {
@@ -55,7 +69,6 @@ export const appRouter = router({
         }
       }),
   },
-  
 });
 
 export type AppRouter = typeof appRouter;
