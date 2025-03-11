@@ -20,7 +20,7 @@ export default function SiteDeploy({}) {
   });
 
   useEffect(() => {
-    if (deployQuery.isLoading) {
+    if (deployQuery.isLoading || el.current === null) {
       return;
     }
 
@@ -52,7 +52,6 @@ export default function SiteDeploy({}) {
       },
     });
 
-    // @ts-ignore
     qrCode.append(el.current);
   }, [deployQuery.isLoading]);
 
