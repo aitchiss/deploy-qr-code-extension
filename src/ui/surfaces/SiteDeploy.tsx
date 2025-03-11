@@ -34,7 +34,7 @@ export default function SiteDeploy({}) {
       height: 200,
       data: deployUrl,
       backgroundOptions: {
-        color: "transparent",
+        color: "#fff",
       },
       qrOptions: {
         errorCorrectionLevel: "M",
